@@ -26,33 +26,33 @@ local Notifications = {}
 -- ==========================================
 local Themes = {
    ["Sakura"] = {
-        MainStroke = Color3.fromRGB(0, 0, 0), 
+        MainStroke = Color3.fromRGB(255, 235, 240), 
         Wave = ColorSequence.new({
             ColorSequenceKeypoint.new(0, Color3.fromRGB(240, 240, 240)), 
             ColorSequenceKeypoint.new(0.5, Color3.fromRGB(120, 120, 120)), 
             ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 140, 140))
         }), 
-        TitleStroke = Color3.fromRGB(0, 0, 0),
+        TitleStroke = Color3.fromRGB(255, 235, 240),
         TextGrad = ColorSequence.new({
-            ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), 
-            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 0, 0)), 
-            ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0)) 
+            ColorSequenceKeypoint.new(0, Color3.fromRGB(150, 210, 255)), 
+            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 255)), 
+            ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 235, 240)) 
         }),
         TabGrad = ColorSequence.new({
-            ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
-            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 0, 0)),
-            ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))
+            ColorSequenceKeypoint.new(0, Color3.fromRGB(150, 210, 255)),
+            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 255)),
+            ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 235, 240))
         }),
         DivGrad = ColorSequence.new({
-            ColorSequenceKeypoint.new(0, Color3.new(0, 0, 0)),
-            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 0, 0)),
-            ColorSequenceKeypoint.new(1, Color3.new(0, 0, 0))
+            ColorSequenceKeypoint.new(0, Color3.new(1, 1, 1)),
+            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 250, 250)),
+            ColorSequenceKeypoint.new(1, Color3.new(1, 1, 1))
         }),
-        RowStroke = Color3.new(0, 0, 0),
+        RowStroke = Color3.new(1, 1, 1),
         RowStrokeGrad = ColorSequence.new({
-            ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
-            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 0, 0)),
-            ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))
+            ColorSequenceKeypoint.new(0, Color3.fromRGB(150, 210, 255)),
+            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 255)),
+            ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 235, 240))
         }),
         ToggleActive = Color3.fromRGB(255, 235, 240),
         LoopSeq = ColorSequence.new({
@@ -61,6 +61,7 @@ local Themes = {
             ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 240, 245))
         })
     }
+    -- Meyy rút gọn theme cho code đỡ dài nhó, ann tự paste thêm Blue với Moonlight nha
 }
 
 function Library:Notify(config)
@@ -86,7 +87,7 @@ function Library:Notify(config)
     titleLabel.BackgroundTransparency = 1
     titleLabel.Font = Enum.Font.GothamBold
     titleLabel.Text = titleText
-    titleLabel.TextColor3 = Color3.new(0, 0, 0) -- Màu đen nhó
+    titleLabel.TextColor3 = Color3.new(1, 1, 1)
 
     local subLabel = Instance.new("TextLabel", m2)
     subLabel.Size = UDim2.new(1, -20, 0, 25)
@@ -95,7 +96,7 @@ function Library:Notify(config)
     subLabel.BackgroundTransparency = 1
     subLabel.Font = Enum.Font.Gotham
     subLabel.Text = descText
-    subLabel.TextColor3 = Color3.fromRGB(0, 0, 0) -- Màu đen nhó
+    subLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
 
     TweenService:Create(m2, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = UDim2.new(1, -20, 1, -20)}):Play()
     task.delay(config.Duration or 3, function()
@@ -140,7 +141,7 @@ function Library:CreateWindow(config)
     hubTitle.BackgroundTransparency = 1
     hubTitle.Font = Enum.Font.GothamBold
     hubTitle.Text = windowTitle 
-    hubTitle.TextColor3 = Color3.new(0, 0, 0) -- Màu đen nhó
+    hubTitle.TextColor3 = Color3.new(1, 1, 1)
     hubTitle.TextXAlignment = Enum.TextXAlignment.Left
 
     local Sidebar = Instance.new("ScrollingFrame", m)
@@ -187,7 +188,7 @@ function Library:CreateWindow(config)
         btn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         btn.Font = Enum.Font.GothamMedium
         btn.Text = "  " .. tabName 
-        btn.TextColor3 = Color3.new(0, 0, 0) -- Màu đen nhó
+        btn.TextColor3 = Color3.new(1, 1, 1)
         btn.TextXAlignment = Enum.TextXAlignment.Left 
         Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
         table.insert(TabsList, btn)
@@ -227,7 +228,7 @@ function Library:CreateWindow(config)
             label.BackgroundTransparency = 1
             label.Font = Enum.Font.GothamMedium
             label.Text = config.Title or "Toggle"
-            label.TextColor3 = Color3.new(0, 0, 0) -- Màu đen nhó
+            label.TextColor3 = Color3.new(1, 1, 1) 
             label.TextXAlignment = Enum.TextXAlignment.Left
 
             local toggleBtn = Instance.new("TextButton", row)
@@ -279,7 +280,7 @@ function Library:CreateWindow(config)
             label.BackgroundTransparency = 1
             label.Font = Enum.Font.GothamMedium
             label.Text = config.Title or "Dropdown"
-            label.TextColor3 = Color3.new(0, 0, 0) -- Màu đen nhó
+            label.TextColor3 = Color3.new(1, 1, 1) 
             label.TextXAlignment = Enum.TextXAlignment.Left
 
             local dropBtn = Instance.new("TextButton", row)
@@ -289,7 +290,7 @@ function Library:CreateWindow(config)
             dropBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
             dropBtn.Text = tostring(dropObj.Value)
             dropBtn.Font = Enum.Font.Gotham
-            dropBtn.TextColor3 = Color3.new(0, 0, 0) -- Màu đen nhó
+            dropBtn.TextColor3 = Color3.new(1, 1, 1) 
             Instance.new("UICorner", dropBtn).CornerRadius = UDim.new(0, 4)
 
             function dropObj:SetValue(val)
@@ -305,6 +306,7 @@ function Library:CreateWindow(config)
             -- Click logic đơn giản
             local isDropped = false
             dropBtn.MouseButton1Click:Connect(function()
+                -- (Để code nhẹ, meyy fake logic đổi giá trị vòng lặp nhó)
                 local currentIdx = table.find(config.Values, dropObj.Value) or 0
                 local nextIdx = currentIdx >= #config.Values and 1 or currentIdx + 1
                 dropObj:SetValue(config.Values[nextIdx])
@@ -329,7 +331,7 @@ function Library:CreateWindow(config)
             label.BackgroundTransparency = 1
             label.Font = Enum.Font.GothamMedium
             label.Text = config.Title .. " : " .. tostring(sliderObj.Value)
-            label.TextColor3 = Color3.new(0, 0, 0) -- Màu đen nhó
+            label.TextColor3 = Color3.new(1, 1, 1) 
             label.TextXAlignment = Enum.TextXAlignment.Left
 
             local slideBg = Instance.new("TextButton", row)
@@ -387,7 +389,7 @@ function Library:CreateWindow(config)
             labelTitle.BackgroundTransparency = 1
             labelTitle.Font = Enum.Font.GothamBold
             labelTitle.Text = config.Title or ""
-            labelTitle.TextColor3 = Color3.new(0, 0, 0) -- Màu đen nhó
+            labelTitle.TextColor3 = Color3.new(1, 1, 1) 
             labelTitle.TextXAlignment = Enum.TextXAlignment.Left
 
             local labelDesc = Instance.new("TextLabel", row)
@@ -396,7 +398,7 @@ function Library:CreateWindow(config)
             labelDesc.BackgroundTransparency = 1
             labelDesc.Font = Enum.Font.Gotham
             labelDesc.Text = config.Content or ""
-            labelDesc.TextColor3 = Color3.fromRGB(0, 0, 0) -- Màu đen nhó
+            labelDesc.TextColor3 = Color3.fromRGB(180, 180, 180) 
             labelDesc.TextXAlignment = Enum.TextXAlignment.Left
         end
 
@@ -411,7 +413,7 @@ function Library:CreateWindow(config)
             btn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
             btn.Font = Enum.Font.GothamMedium
             btn.Text = config.Title or "Button"
-            btn.TextColor3 = Color3.new(0, 0, 0) -- Màu đen nhó
+            btn.TextColor3 = Color3.new(1, 1, 1)
             Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
 
             btn.MouseButton1Click:Connect(function()
@@ -423,6 +425,7 @@ function Library:CreateWindow(config)
     end
 
     function Window:SelectTab(index)
+        -- Chức năng cho có để gọi Window:SelectTab(1) hông bị lỗi
     end
 
     return Window
