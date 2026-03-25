@@ -1,5 +1,5 @@
 local Library = {
-    Options = {} -- Bảng này cực quan trọng để giả lập Fluent nhó
+    Options = {}
 }
 
 -- ==========================================
