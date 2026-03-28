@@ -1,5 +1,1 @@
 
-loading(game:HttpGet("https://raw.githubusercontent.com/tokaruun/script/refs/heads/main/checkkey.lua"))()
-if getgenv().KeySuccess then
-loadstring(game:HttpGet("https://vxezestudio.online/api/scripts/script_87f9oa2ubdy/raw"))()
-end
