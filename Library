@@ -17,7 +17,7 @@ getgenv().Config = {
 }
 local CoreGui, Players, RunService, TweenService, LocalPlayer = game:GetService("CoreGui"), game:GetService("Players"), game:GetService("RunService"), game:GetService("TweenService"), game:GetService("Players").LocalPlayer
 
--- [PHẦN CHỈNH SỬA: LƯU FILE CHO ỔN ĐỊNH]
+
 local fileName = "AnnTimeData_" .. LocalPlayer.UserId .. ".txt"
 local function save_to_file(t)
     pcall(function()
@@ -30,7 +30,7 @@ local function read_from_file()
     return success and tonumber(content) or 0
 end
 
--- 1. HÀM LOCK FPS
+
 local function set_fps(cap)
     local setter = setfpscap or set_fps_cap or setfps or (fluxus and fluxus.set_fps_cap)
     if setter then pcall(function() setter(cap) end) end
@@ -45,7 +45,7 @@ end)
 
 if getgenv().kc then pcall(function() getgenv().kc:Destroy() end) end
 
--- 2. TẠO GUI
+
 local g = Instance.new("ScreenGui")
 g.Name = "Naa_Script_UI_" .. math.random(100, 999)
 g.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -54,12 +54,10 @@ end)
 if not g.Parent then g.Parent = LocalPlayer:WaitForChild("PlayerGui") end
 getgenv().kc = g
 
--- 3. MAIN FRAME (NỀN GỢN SÓNG)
 local m = Instance.new("Frame", g)
 m.BackgroundColor3, m.Position, m.Size, m.AnchorPoint = Color3.new(1, 1, 1), UDim2.new(0.5, 0, 0, -100), UDim2.new(0, 270, 0, 32), Vector2.new(0.5, 0)
 Instance.new("UICorner", m).CornerRadius = UDim.new(1, 0)
 
--- Hàm hỗ trợ đổi màu Hex
 local function FH(h, def)
     if not h or h == "" then return def end
     h = h:gsub("#","")
@@ -67,7 +65,7 @@ local function FH(h, def)
     return success and res or def
 end
 
--- [PHẦN CUSTOM NỀN - FIX LỖI REVERT]
+
 local bgGradient 
 = Instance.new("UIGradient", m)
 local cfg = getgenv().Config or {}
@@ -92,7 +90,6 @@ t.Thickness, t.Color = 0.5, Color3.fromRGB(120, 60, 80)
 local d, e = Instance.new("UIGradient", i), 
 Instance.new("UIGradient", u)
 
--- 4. ICONS (TAI MÈO)
 local function k(id, post, size, rot, anchor)
     local o = Instance.new("ImageLabel", m)
     o.BackgroundTransparency, o.Position, o.Size, o.Image, o.Rotation = 1, post, size, "rbxthumb://type=Asset&id="..id.."&w=420&h=420", rot or 0
@@ -114,12 +111,12 @@ for j, id in ipairs(ids) do
     table.insert(ics, {obj = o, off = (j/#ids)*(math.pi*2), g = (j%2==0) and 1 or -1, defaultId = id})
 end
 
--- 5. LOGIC CẬP NHẬT
+
 local totalSavedTime = read_from_file()
 local startTime = tick()
 local f, l, r = 0, tick(), 0
 
--- Tự động lưu mỗi 30 giây
+
 task.spawn(function()
     while task.wait(15) do
         save_to_file(totalSavedTime + math.floor(tick() - startTime))
