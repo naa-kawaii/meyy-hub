@@ -1,20 +1,4 @@
-getgenv().Config = {
-    BackgroundColors = {"#FFF0F5", "#FFFFFF"}, 
-    ShowDecals = true,           -- Chỉnh 'true' là bật, 'false' là tắt sạch icon
-    DecalSize = 25,              -- Độ to nhỏ của icon (để 25 là vừa á)
-    CustomIcons = {              -- ID ảnh lấy từ Roblox, thích icon nào thì thay ID đó vào
-        "99621050786909", 
-        "132594641536971", 
-        "102946999622375", 
-        "125751906521282"
-    },
-    AuraSpeed = 0.8,             -- Tốc độ icon xoay vòng vòng quanh menu
-    SpiralSpeed = 1.0,           -- Tốc độ icon nhấp nhô lên xuống
-    Radius = 155,                -- Khoảng cách icon bay xa hay gần tâm UI (để 155 là chuẩn)
-    RotationSpeed = 1.0,         -- Tốc độ đổi màu của dải cầu vồng ở viền
-    BorderColors = {"#FFB4D2", "#FFFFFF"}, -- Màu của cái viền bao quanh menu
-    MaxFPS = 15                            -- Giới hạn FPS (để 60 cho mượt, máy yếu thì để 30)
-}
+
 local CoreGui, Players, RunService, TweenService, LocalPlayer = game:GetService("CoreGui"), game:GetService("Players"), game:GetService("RunService"), game:GetService("TweenService"), game:GetService("Players").LocalPlayer
 
 
