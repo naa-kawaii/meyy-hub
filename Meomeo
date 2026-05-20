@@ -1,0 +1,30 @@
+
+
+
+
+--------------------------------
+
+local players_service = game:GetService("Players")
+local local_player = players_service.LocalPlayer
+
+if local_player then
+    local current_username = local_player.Name
+    local config = account_configs[current_username]
+
+    if config then
+        local success, load_error = pcall(function()
+            local execute_script = loadstring(config.raw_source)
+            if execute_script then
+                task.spawn(execute_script)
+            else
+                error("Không thể loadstring script raw rùi mò...")
+            end
+        end)
+
+        if not success then
+            warn("Waa~ Có lỗi khi chạy script cho acc " .. current_username .. ": " .. tostring(load_error))
+        end
+    else
+        warn("Hông tìm thấy cấu hình cho tài khoản này đâuu uốn (╥﹏╥)")
+    end
+end
